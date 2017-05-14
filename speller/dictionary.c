@@ -47,8 +47,7 @@ bool check(const char *word)
 
     return false;
 }
-
-//counter to count the number of words in dictionary
+// counter to count the number of words in dictionary
 
 int dicounter;
 /**
@@ -111,7 +110,7 @@ bool load(const char *dictionary)
  */
 unsigned int size(void)
 {
-   //returning total loaded words.
+   // returning total loaded words.
     return dicounter;
 }
 
@@ -120,7 +119,7 @@ unsigned int size(void)
  */
 bool unload(void)
 {
-     for (int i = 0; i < HASHTABLE; i++)
+    for (int i = 0; i < HASHTABLE; i++)
     {
         // Initiating refpt to move inside all lists
         node *refpt = list[i];
@@ -140,7 +139,7 @@ bool unload(void)
             free(temp2);
         }
     }
-    return false;
+    return true;
 }
 // hash function
 int hashf(const char* word)
