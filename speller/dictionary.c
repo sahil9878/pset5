@@ -27,6 +27,23 @@ int hashf(const char*node);
  */
 bool check(const char *word)
 {
+  
+    int trgt = hashf(word);
+    
+    // Declaring a temporary node pointer to check misspelled words
+    node* temp = list[trgt];
+    
+    // Searching word in the target list 
+    while (temp != NULL)
+    {
+        // comparing without case sensitivity
+        if (strcasecmp (temp->word, word) == 0)
+        {
+            return true;
+        }
+        // switching to next node
+        temp = temp->next_node;
+    }
 
     return false;
 }
