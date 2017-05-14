@@ -120,7 +120,26 @@ unsigned int size(void)
  */
 bool unload(void)
 {
-    // TODO
+     for (int i = 0; i < HASHTABLE; i++)
+    {
+        // Initiating refpt to move inside all lists
+        node *refpt = list[i];
+        
+        // Clearing all the allocated memory
+        while (refpt != NULL)
+        {
+            node* temp1 = refpt;
+            
+            char* temp2 = refpt->word;
+            
+            refpt = refpt->next_node;
+            
+            // freeing all the memory reserved by node elements
+            free(temp1);
+            
+            free(temp2);
+        }
+    }
     return false;
 }
 // hash function
